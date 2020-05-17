@@ -10,13 +10,13 @@ namespace FordFulkersonAlgoTests
 	{
 	public:
 
-		TEST_METHOD(TestMethod_Ñorrect_output_for_6_vertexes)
+		TEST_METHOD(TestCorrectInput)
 		{
 			ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input1.txt");
 			NetworkFlow Flows(input);
 			Assert::AreEqual(Flows.max_flow(), 5);
 		}
-		TEST_METHOD(TestMethod_Exception_entering_the_first_character) {
+		TEST_METHOD(TestErrorFirstInputCharacter) {
 			try {
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input2.txt");
 				NetworkFlow Flows(input);
@@ -25,7 +25,7 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "Error entering the first character in the string or missing a space after it. Check the correctness of the input in the file and correct these errors in the line under the number: 2");
 			}
 		}
-		TEST_METHOD(TestMethod_Exception_entering_the_second_character) {
+		TEST_METHOD(TestErrorSecondInputCharacter) {
 			try {
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input3.txt");
 				NetworkFlow Flows(input);
@@ -34,7 +34,7 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "Error entering the second character in the string or missing a space after it. Check the correctness of the input in the file and correct these errors in the line under the number: 2");
 			}
 		}
-		TEST_METHOD(TestMethod_Exception_entering_the_third_number_Flows) {
+		TEST_METHOD(TestErrorNumberInput) {
 			try {
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input4.txt");
 				NetworkFlow Flows(input);
@@ -43,7 +43,7 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "Error entering the third character (bandwidth) in the string or the presence of a space after it.Please note that the bandwidth cannot be negative. Check that you entered the file correctly and correct these errors in the line number: 2");
 			}
 		}
-		TEST_METHOD(TestMethod_Exception_empty_string) {
+		TEST_METHOD(TestEmptyInput) {
 			try {
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input5.txt");
 				NetworkFlow Flows(input);
@@ -52,19 +52,19 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "A data-entry error. Check the correctness of the input in the file and correct these errors in the line under the number: 2");
 			}
 		}
-		TEST_METHOD(TestMethod_Ñorrect_output_for_6_vertexes_and_edge_from_source_to_sink)
+		TEST_METHOD(TestCorrectInput_6vert)
 		{
 			ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input6.txt");
 			NetworkFlow Flows(input);
 			Assert::AreEqual(Flows.max_flow(), 25);
 		}
-		TEST_METHOD(TestMethod_Ñorrect_output_for_2_vertexes_edges_from_source_to_sink)
+		TEST_METHOD(TestCorrectInput_2vert)
 		{
 			ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input7.txt");
 			NetworkFlow Flows(input);
 			Assert::AreEqual(Flows.max_flow(), 20);
 		}
-		TEST_METHOD(TestMethod_Exception_there_is_a_path_from_the_vertex_to_itself) {
+		TEST_METHOD(TestErrorVertexPathToItself) {
 			try
 			{
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input8.txt");
@@ -74,13 +74,13 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "The path from the vertex to itself is impossible in the string under the number: 2");
 			}
 		}
-		TEST_METHOD(TestMethod_Ñorrect_output_for_20_vertexes)
+		TEST_METHOD(TestCorrect_20vert)
 		{
 			ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input9.txt");
 			NetworkFlow Flows(input);
 			Assert::AreEqual(Flows.max_flow(), 19);
 		}
-		TEST_METHOD(TestMethod_Exception_missing_source) {
+		TEST_METHOD(TestErrorNoSource) {
 			try
 			{
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input10.txt");
@@ -90,7 +90,7 @@ namespace FordFulkersonAlgoTests
 				Assert::AreEqual(ex.what(), "Source is missing");
 			}
 		}
-		TEST_METHOD(TestMethod_Exception_missing_sink) {
+		TEST_METHOD(TestErrorNoSink) {
 			try
 			{
 				ifstream input("C:\\Users\\Squirrel\\Desktop\\FordFulkersonAlgoTests\\Input11.txt");
